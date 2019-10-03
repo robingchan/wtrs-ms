@@ -1,0 +1,32 @@
+version: "3.4"
+
+services:
+  web:
+    ports:
+      - "1337:80"
+    volumes:
+      - '../services/apigateway/src:/src'
+      - './nginx.conf:/etc/nginx/nginx.conf'
+  
+  phpfpm:    
+    volumes:
+      - '../services/apigateway/src:/src'
+    networks:
+      - phpfpm
+      - redis
+      - auth_net
+      - user_net
+
+  redis:
+    image: 'redis'
+    networks:
+      - redis
+
+networks:
+  net:
+  redis:
+  phpfpm:
+  auth_net:
+    external: true
+  user_net:
+    external: true

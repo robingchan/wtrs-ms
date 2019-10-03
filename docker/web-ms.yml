@@ -1,0 +1,30 @@
+version: "3.4"
+
+services:
+  web:
+    image: 'nginx:latest'
+    depends_on:
+      - phpfpm
+    networks:
+      - net
+      - phpfpm
+  
+  phpfpm:
+    image: 'php:7.2-fpm'
+    volumes:
+      - './src:/src'
+    networks:
+      - phpfpm
+      - mysql
+
+  mysql:
+    image: 'mysql'
+    networks:
+      - mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: '123'
+
+networks: 
+  net:
+  phpfpm:
+  mysql:
