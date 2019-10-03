@@ -1,2 +1,0 @@
-apigateway
-<?php phpinfo(); ?>
