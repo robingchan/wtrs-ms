@@ -1,60 +1,27 @@
 <template>
-  <h1 class="bg-blue-200">hello</h1>
+  <v-card
+    max-width="344"
+    class="mx-auto"
+  >
+    <v-card-text>
+        <p>Lenovo A10-30 Digitizer Replacement</p>
+        <small>screen, replacement to be ordered and fitted.</small>
+        <v-select
+          :items="items"
+          label="input test"
+          outlined
+        ></v-select>
+    </v-card-text>
+    <v-card-actions>
+      <v-btn text>Click</v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
 export default {
   data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader',
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify',
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify',
-      },
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com',
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com',
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify',
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs',
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify',
-      },
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer',
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined',
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
-      },
-    ],
-  }),
+    items: ['Foo', 'Bar', 'Fizz', 'Buzz']
+  })
 };
 </script>
