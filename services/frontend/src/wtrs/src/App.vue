@@ -1,14 +1,35 @@
 <template>
-  <v-app>
+  <v-app>  
+    <v-system-bar
+          app
+          color="orange"
+          :height="height"
+          :lights-out="lightsOut"
+          :window="window"
+        >
+          <v-icon>mdi-gmail</v-icon>
+          <span>3 technicians online</span>
+          <div class="flex-grow-1"></div>
+          <v-icon>mdi-wifi-strength-4</v-icon>
+          <v-icon>mdi-signal-cellular-outline</v-icon>
+          <v-icon>mdi-battery</v-icon>
+          <span>10 new tickets</span>
+        </v-system-bar>
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-toolbar-title>{{$t('message')}}</v-toolbar-title>
+      
+    </v-app-bar>
+    
     <v-navigation-drawer
       v-model="drawer"
-      absolute
+      expand-on-hover
       temporary
       app
     >
       <v-list-item>
         <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+          <!--<v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>-->
         </v-list-item-avatar>
 
         <v-list-item-content>
@@ -36,13 +57,15 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block color="error">Logout</v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
 
-    <v-app-bar app>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-      <v-toolbar-title>wt.rs</v-toolbar-title>
-      
-    </v-app-bar>
+
 
     <!-- Sizes your content based upon application components -->
     <v-content>
@@ -78,10 +101,14 @@ export default {
   },
   data () {
     return {
-      drawer: null,
+      drawer: false,
       items: [
-        { title: 'Home', icon: 'dashboard' },
-        { title: 'About', icon: 'question_answer' },
+        { title: 'Customers', icon: 'mdi-account-heart' },        
+        { title: 'Devices', icon: 'mdi-devices' },
+        { title: 'Tickets', icon: 'mdi-ticket' },
+        { title: 'Invoices', icon: 'mdi-file-table' },
+        { title: 'Point Of Sale', icon: 'mdi-currency-usd' },
+        { title: 'Reporting', icon: 'mdi-chart-areaspline' }
       ],
     }
   },
